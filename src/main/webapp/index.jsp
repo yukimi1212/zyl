@@ -13,17 +13,17 @@
 <!-- ===================================
 	FAVICON ICON
 ==================================== -->
-<link rel="shortcut icon" href="../../images/ico/favicon.png">
+<link rel="shortcut icon" href="images/ico/favicon.png">
 
 <!-- ===================================
 	NORMALIZE CSS
 ==================================== -->
-<link rel="stylesheet" href="../../css/normalize.css">
+<link rel="stylesheet" href="css/normalize.css">
 
 <!-- ===================================
 	BOOTSTRAP 
 ==================================== -->
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 
 <!-- ===================================
 	GOOGLE FONTS
@@ -34,31 +34,31 @@
 <!-- ===================================
 	FONTS ICON
 ==================================== -->
-<link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
 
 <!-- ===================================
 	PLUGIN
 ==================================== -->
-<link rel="stylesheet" href="../../css/magnific-popup.css">
-<link rel="stylesheet" href="../../css/slider-pro.css">
-<link rel="stylesheet" href="../../css/owl.carousel.css">
-<link rel="stylesheet" href="../../css/owl.theme.css">
-<link rel="stylesheet" href="../../css/owl.transitions.css">
-<link rel="stylesheet" href="../../css/animate.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/slider-pro.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/owl.transitions.css">
+<link rel="stylesheet" href="css/animate.css">
 
 <!-- ===================================
 	MAIN STYLESHEET
 ==================================== -->
-<link rel="stylesheet" href="../../css/main.css">
-<link rel="stylesheet" href="../../css/responsive.css" />
-<link rel="stylesheet" href="../../css/color-green.css" id="colors" />
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/responsive.css" />
+<link rel="stylesheet" href="css/color-green.css" id="colors" />
 
 
 
 <!--[if lt IE 9]>
-	<script src="../../js/html5shiv.min.js"></script>
-	<script src="../../js/respond.min.js"></script>
-	<script type="text/javascript" src="../../js/selectivizr-min.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<script type="text/javascript" src="js/selectivizr-min.js"></script>
 	<script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
 	<script src="http://css3-mediaqueries-js.googlecode.com/files/css3-mediaqueries.js"></script>
 	<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
@@ -85,7 +85,7 @@
 				</button>
 
 				<!-- Logo -->
-				<a class="navbar-brand" href="index.jsp"><img class="logo" id="logo" src="../../images/logo.PNG" alt="Page"></a>
+				<a class="navbar-brand" href="index.jsp"><img class="logo" id="logo" src="images/logo.PNG" alt="Page"></a>
 
 			</div>
 			<!-- Navbar Toggle End -->
@@ -101,6 +101,15 @@
 					</li>
 					<li>
 						<a href="#info">个人信息</a>
+					</li>
+					<li>
+						<a href="login.jsp">
+						<img src="images/user.PNG" alt="用户登录"  height="50" width="50"/>
+						</a>
+<!-- 						<a href="javascript:void(0)" onclick="login()">
+						<img src="images/user.PNG" alt="用户登录"  height="50" width="50"/>
+						</a>
+ -->						
 					</li>
 				</ul>
 			</div>
@@ -122,7 +131,7 @@
 		<div class="sp-slide clean-main-slides">
 			<div class="clean-img-overlay"></div>
 
-			<img class="sp-image" src="../../images/slider/1.jpg" alt="Slider 1"/>
+			<img class="sp-image" src="images/slider/1.jpg" alt="Slider 1"/>
 
 			<h1 class="sp-layer clean-slider-text-big"
 			data-position="center" data-show-transition="right" data-hide-transition="right" data-show-delay="1500" data-hide-delay="200">
@@ -139,7 +148,7 @@
 		<!-- Slides -->
 		<div class="sp-slide clean-main-slides">
 		<div class="clean-img-overlay"></div>
-			<img class="sp-image" src="../../images/slider/2.jpg" alt="Slider 2"/>
+			<img class="sp-image" src="images/slider/2.jpg" alt="Slider 2"/>
 
 			<h1 class="sp-layer clean-slider-text-big"
 			 data-position="center" data-show-transition="right" data-hide-transition="right" data-show-delay="1500" data-hide-delay="200">
@@ -157,7 +166,7 @@
 		<div class="sp-slide clean-main-slides">
 			<div class="clean-img-overlay"></div>
 
-			<img class="sp-image" src="../../images/slider/3.jpg" alt="Slider 3"/>
+			<img class="sp-image" src="images/slider/3.jpg" alt="Slider 3"/>
 
 			<h1 class="sp-layer clean-slider-text-big"
 			data-position="center" data-show-transition="right" data-hide-transition="right" data-show-delay="1500" data-hide-delay="200">
@@ -200,16 +209,16 @@
 						<i class="fa fa-html5"></i>
 						</a>
 					</div>
-					<h3>实时搜索</h3>
-					<p>实时定位，搜索附近停车场</p>
+					<h3>停车场搜索</h3>
+					<p>实时定位搜索附近停车场；输入目的地搜索停车场。</p>
 				</div>
 
 				<div class="col-md-3 col-sm-3 col-xs-12 clean-blurb-round-icon wow bounceIn" data-wow-delay=".5s">
 					<div class="clean-icon">
 						<i class="fa fa-css3"></i>
 					</div>
-					<h3>停车场查询</h3>
-					<p>统计了各个停车场的数据，可按地区按类型查询停车场的相关信息.</p>
+					<h3>停车场统计</h3>
+					<p>统计了各个停车场的数据，可按地区按类型查询停车场的相关信息。</p>
 				</div>
 
 				<div class="col-md-3 col-sm-3 col-xs-12 clean-blurb-round-icon wow bounceIn" data-wow-delay=".5s">
@@ -217,7 +226,7 @@
 						<i class="fa fa-laptop"></i>
 					</div>
 					<h3>历史记录</h3>
-					<p>查询个人历史停车记录.</p>
+					<p>查看个人历史停车记录。</p>
 				</div>
 
 				<div class="col-md-3 col-sm-3 col-xs-12 clean-blurb-round-icon wow bounceInRight" data-wow-delay=".5s">
@@ -227,7 +236,7 @@
 						</a>
 					</div>
 					<h3>分析统计</h3>
-					<p>综合各种数据，对停车场，车位利用率等信息进行统计分析后得到的结果.</p>
+					<p>综合各种数据，对停车场，车位利用率等信息进行统计分析。.</p>
 				</div>
 		 
 			</div>
@@ -258,12 +267,12 @@
 
 					<div class="clean-testimonial-slides col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1"> 
 						<div class="clean-member-img-wrapper">
-							<img src="../../images/testimonial/user.jpg" alt="用户头像" height="120" width="120">
+							<img src="images/testimonial/user.jpg" alt="用户头像" height="120" width="120">
 						</div>
-						<p class="clean-client-info">${user_name }</p><br>
+						<p class="clean-client-info">游客</p><br>
 						<p>您好，欢迎来到智能停车管理系统，</p>
-						<p>城市停车场智能化管理，数据录入，分类整理，实时展示，统计分析。</p>						
-						<a href="../../index.jsp"><h4>登出</h4></a>
+						<p>城市停车场智能化管理，数据录入，分类整理，实时展示，统计分析。</p>
+						<a href="login.jsp"><h4>登录</h4></a>
 					</div>
 					<!-- Slides End -->
 				</div>
@@ -286,7 +295,7 @@
 
 				<div class="clean-footer-logo wow bounceIn" data-wow-offset="0">
 					<a href="index.jsp">
-						<img id="logo-footer" src="../../images/logo.PNG" alt="clean">
+						<img id="logo-footer" src="images/logo.PNG" alt="clean">
 					</a>
 				</div>
 
@@ -299,23 +308,23 @@
 <!-- ===================================
 	SCRIPTS
 ==================================== -->
-<script src="../../js/modernizr.min.js"></script>
-<script src="../../js/jquery.min.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/jquery.easing.js"></script>
-<script src="../../js/jquery.scrollUp.min.js"></script>
-<script src="../../js/smooth-scroll.min.js"></script>
-<script src="../../js/jquery.magnific-popup.min.js"></script>
-<script src="../../js/jquery.sliderPro.min.js"></script>
-<script src="../../js/owl.carousel.min.js"></script>
-<script src="../../js/jquery.easypiechart.js"></script>
-<script src="../../js/jquery.countTo.js"></script>
-<script src="../../js/isotope.pkgd.min.js"></script>
-<script src="../../js/jquery.stellar.min.js"></script>
-<script src="../../js/jquery.waypoints.min.js"></script>
-<script src="../../js/wow.min.js"></script>
-<script src="../../js/jquery.nav.js"></script>
-<script src="../../js/custom.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/smooth-scroll.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.sliderPro.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.easypiechart.js"></script>
+<script src="js/jquery.countTo.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/custom.js"></script>
 </body>
 
 <script type="text/javascript">  
@@ -334,6 +343,7 @@
 	
 	function login(){
 		window.location.href="login.jsp";  
+//		window.open("login.jsp");
 	}
 </script>
 </html>

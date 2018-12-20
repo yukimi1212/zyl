@@ -1,0 +1,59 @@
+{
+ 
+  "title":{
+ 
+    "text":  "bar_filled",
+    "style": "{font-size:20px; color: #567300;  font-family: Verdana; text-align: center;}"
+   
+},
+ 
+  "elements":[
+    {
+ 
+      "type":            "bar_filled",
+      "colour":          "#81AC00",
+      "outline-colour":  "#567300",
+      "values" :   [
+        3,
+        8,
+null,
+       -5,
+        {
+"top":5,"outline-colour": "#7030A0", "tip": "outline"
+},
+       4,
+       {
+"top":5, "colour": "#99FF00", "tip": "colour"
+},
+       {
+"top":-3,"colour": "#D08080", "outline-colour": "#FF0000", "tip": "colour + outline"
+},
+       null,
+       7.5]
+     
+}
+  ],
+ 
+  "x_axis":{
+ 
+    "labels": {
+      "labels": ["January","February","March","April","May","June","July","August","Spetember","October"]
+    }
+    
+},
+ 
+  "y_axis":{
+ 
+    "min": -10,
+    "max":  10
+   
+},
+ 
+  "tooltip":{
+ 
+    "text": "My Tip<br>#top#,#bottom# = #val#"
+   
+}
+ 
+ 
+}
