@@ -19,11 +19,10 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
-
 </head>
 
   <body class="login-body">
-
+      
       <div class="login-logo">
           <img src="images/logo.PNG" alt="smart"/>
       </div>
@@ -32,8 +31,9 @@
       <div class="container log-row">
       	<form id="form" class="form-signin" action="/login/user" method="get" enctype="multipart/form-data"> 
               <div class="login-wrap">
+              	  <span style="color:#f36616" id="warning"></span>
                   <input type="text" id="user_id" name="user_id" class="form-control" placeholder="User ID" autofocus>
-                  <input type="password" id="user_name" name="user_pwd" class="form-control" placeholder="Password">
+                  <input type="password" id="user_pwd" name="user_pwd" class="form-control" placeholder="Password">
                   <button class="btn btn-lg btn-success btn-block" type="submit">LOGIN</button>
                   <div class="login-social-link">
                   </div>
@@ -102,40 +102,20 @@
 	        var options = {
 	            url: "http://localhost:8080/login/user",
 	            success: function (data) {
-	                var jsonData = JSON.stringify(data);
-	                window.open("http://localhost:8080/user/" + jsonData + "/home");
+	                var user_name = JSON.stringify(data);
+	                var n = user_name.split("|");
+	                if(n[1] != "")
+	                	window.location.href="http://localhost:8080/user/" + n[1] + "/home";
+	                else{
+	                	document.getElementById("warning").innerHTML = "用户名或密码错误，请重新输入";
+	                	$("#user_id").val("");
+                		$("#user_pwd").val("");
+	                }	
 	            }
 	        };
 	        $("#form").ajaxForm(options);
 	    })
 	})
 
-
-	function login(){
-        var user_id = document.getElementById("user_id").value;
-        var user_pwd = document.getElementById("user_pwd").value;
-        alert(user_id);
-        alert(user_name);
-        var uurl = "http://localhost:8080/user/"
-        $.ajax({
-                type:'GET',
-                url:"http://localhost:8080/login/user",
-                async:true,
-	            data:{
-                    'user_id':user_id,
-                    'user_pwd':user_pwd
-                }, 
-
-//                dataType:'json',
-                success:function(result){
-                    window.open(uurl + user_id);
- 				},
- 				error:function(error){
- 					var jsonData = JSON.stringify(error);
-                    alert("login error: " + jsonData);
-                }
-                        
-		})
-    }
 </script> 
 </html>

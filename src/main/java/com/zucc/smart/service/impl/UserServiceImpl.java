@@ -24,9 +24,6 @@ public class UserServiceImpl implements UserService {
         log.info("checkUser: " + user_id); 
 //        User user = userMapper.getUserById(user_id);
         User user = userMapper.checkUser(user_id, user_pwd);
-        if(user.getUser_name() == null) {
-        	System.out.println("null");
-        }
         return user;
 	}
 

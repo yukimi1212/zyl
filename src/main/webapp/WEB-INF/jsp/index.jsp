@@ -66,7 +66,10 @@
 </head>
 
 <body>
-
+<% 
+/* 	String user_name = (String) request.getParameter("user");
+	System.out.println("index: " + user_name); */
+%>
 <div class="preloader">
 	<div class="status"></div>
 </div>
@@ -200,8 +203,8 @@
 						<i class="fa fa-html5"></i>
 						</a>
 					</div>
-					<h3>实时搜索</h3>
-					<p>实时定位，搜索附近停车场</p>
+					<h3>停车场搜索</h3>
+					<p>实时定位搜索附近停车场；输入目的地搜索停车场。</p>
 				</div>
 
 				<div class="col-md-3 col-sm-3 col-xs-12 clean-blurb-round-icon wow bounceIn" data-wow-delay=".5s">
@@ -209,7 +212,7 @@
 						<i class="fa fa-css3"></i>
 					</div>
 					<h3>停车场查询</h3>
-					<p>统计了各个停车场的数据，可按地区按类型查询停车场的相关信息.</p>
+					<p>统计了各个停车场的数据，可按地区按类型查询停车场的相关信息。.</p>
 				</div>
 
 				<div class="col-md-3 col-sm-3 col-xs-12 clean-blurb-round-icon wow bounceIn" data-wow-delay=".5s">
@@ -217,7 +220,7 @@
 						<i class="fa fa-laptop"></i>
 					</div>
 					<h3>历史记录</h3>
-					<p>查询个人历史停车记录.</p>
+					<p>查看个人历史停车记录。</p>
 				</div>
 
 				<div class="col-md-3 col-sm-3 col-xs-12 clean-blurb-round-icon wow bounceInRight" data-wow-delay=".5s">
@@ -227,7 +230,7 @@
 						</a>
 					</div>
 					<h3>分析统计</h3>
-					<p>综合各种数据，对停车场，车位利用率等信息进行统计分析后得到的结果.</p>
+					<p>综合各种数据，对停车场，车位利用率等信息进行统计分析。</p>
 				</div>
 		 
 			</div>
@@ -260,7 +263,7 @@
 						<div class="clean-member-img-wrapper">
 							<img src="../../images/testimonial/user.jpg" alt="用户头像" height="120" width="120">
 						</div>
-						<p class="clean-client-info">${user_name }</p><br>
+						<p class="clean-client-info" id="user_name">${user_name }</p><br>
 						<p>您好，欢迎来到智能停车管理系统，</p>
 						<p>城市停车场智能化管理，数据录入，分类整理，实时展示，统计分析。</p>						
 						<a href="../../index.jsp"><h4>登出</h4></a>
@@ -320,15 +323,14 @@
 
 <script type="text/javascript">  
 	function jumpToMap(){
-//		var user_id = document.getElementById("user_id").value;
-		var user_id = "m";		
-        var uurl = "http://localhost:8080/user/" + user_id + "/map";
+		var user_name = document.getElementById("user_name").innerHTML;
+        var uurl = "http://localhost:8080/user/" + user_name + "/map";
         window.open(uurl);  
     }	
 	
 	function jumpToOpen(){
-		var user_id = "o";
-        var uurl = "http://localhost:8080/user/" + user_id + "/open";
+		var user_name = document.getElementById("user_name").innerHTML;
+        var uurl = "http://localhost:8080/user/" + user_name + "/open";
         window.open(uurl);  
     }	
 	

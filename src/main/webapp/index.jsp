@@ -105,11 +105,7 @@
 					<li>
 						<a href="login.jsp">
 						<img src="images/user.PNG" alt="用户登录"  height="50" width="50"/>
-						</a>
-<!-- 						<a href="javascript:void(0)" onclick="login()">
-						<img src="images/user.PNG" alt="用户登录"  height="50" width="50"/>
-						</a>
- -->						
+						</a>		
 					</li>
 				</ul>
 			</div>
@@ -236,7 +232,7 @@
 						</a>
 					</div>
 					<h3>分析统计</h3>
-					<p>综合各种数据，对停车场，车位利用率等信息进行统计分析。.</p>
+					<p>综合各种数据，对停车场，车位利用率等信息进行统计分析。</p>
 				</div>
 		 
 			</div>
@@ -329,21 +325,12 @@
 
 <script type="text/javascript">  
 	function jumpToMap(){
-//		var user_id = document.getElementById("user_id").value;
-		var user_id = "m";		
-        var uurl = "http://localhost:8080/user/" + user_id + "/map";
-        window.open(uurl);  
+		alert("请登录！");
     }	
 	
 	function jumpToOpen(){
-		var user_id = "o";
-        var uurl = "http://localhost:8080/user/" + user_id + "/open";
-        window.open(uurl);  
+		alert("请登录！");
     }	
-	
-	function login(){
-		window.location.href="login.jsp";  
-//		window.open("login.jsp");
-	}
+
 </script>
 </html>

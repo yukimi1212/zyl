@@ -22,19 +22,19 @@
 <body class="login-body">
 
       <div class="login-logo">
-          <img src="img/login_logo.png" alt=""/>
+          <img src="images/logo.PNG" alt=""/>
       </div>
 
       <h2 class="form-heading">registration now</h2>
       <div class="container log-row">
           <form id="form" class="form-signin" method="post">
-              <p> Enter your account details below</p>
-              <input type="text" id="user_id" class="form-control" placeholder="User Id" autofocus>
-              <input type="text" id="user_name" class="form-control" placeholder="Name" autofocus>
-              <input type="text" id="user_phone" class="form-control" placeholder="Phone" autofocus>
-              <input type="text" id="user_age" class="form-control" placeholder="Age" autofocus>
+              <p> Enter your account details below</p><span style="color:#f36616" id="warning_id"></span>
+              <input type="text" id="user_id" class="form-control" placeholder="User Id" autofocus><span style="color:#f36616" id="warning_name"></span>
+              <input type="text" id="user_name" class="form-control" placeholder="Name" autofocus><span style="color:#f36616" id="warning_phone"></span>
+              <input type="text" id="user_phone" class="form-control" placeholder="Phone" autofocus><span style="color:#f36616" id="warning_age"></span>
+              <input type="text" id="user_age" class="form-control" placeholder="Age" autofocus><span style="color:#f36616" id="warning_pwd"></span>
               <input type="password" id="user_pwd" class="form-control" placeholder="Password">
-          	<input type="password" id="reuser_pwd" class="form-control" placeholder="Re-type Password">		 
+          	  <input type="password" id="reuser_pwd" class="form-control" placeholder="Re-type Password">		 
               <div class="radio-custom radio-success">
                   <input type="radio" value="Male" checked="checked" name="gender" id="male">
                   <label for="male">Male</label>
@@ -66,43 +66,7 @@
 
 </body>
   
-	<script type="text/javascript">
-	function register(){
-		var user_gender = $("input[name='gender']:checked").val();	
-        var user_id = document.getElementById("user_id").value;
-        var user_name = document.getElementById("user_name").value;
-        var user_pwd = document.getElementById("user_pwd").value;
-        var reuser_pwd = document.getElementById("reuser_pwd").value;
-        var user_phone = document.getElementById("user_phone").value;
-        var user_age = document.getElementById("user_age").value;
-        if(reuser_pwd == user_pwd){
-        	$.ajax({
-                type:'POST',
-                url:"http://localhost:8080/login/register",
-                async:true,
-	            data:{
-                    'user_id':user_id,
-                    'user_name':user_name,
-                    'user_pwd':user_pwd,
-                    'user_gender':user_gender,
-                    'user_age':user_age,
-                    'user_phone':user_phone
-                }, 
-
-//                dataType:'json',
-                success:function(result){
-                	var jsonData = JSON.stringify(result);
-	                alert(jsonData);
-	                window.open("http://localhost:8080/user/" + jsonData + "/home");
- 				},
- 				error:function(error){
- 					var jsonData = JSON.stringify(error);
-                    alert("login error: " + jsonData);
-                }
-                        
-			}) 
-        }   
-    } 
+	<script type="text/javascript">	
 	
     $(function () {
 	    $(":submit").click(function (e) {
@@ -122,15 +86,45 @@
                     'user_id':user_id,
                     'user_name':user_name,
                     'user_pwd':user_pwd,
+                    'reuser_pwd':reuser_pwd,
                     'user_gender':user_gender,
                     'user_age':user_age,
                     'user_phone':user_phone
                 }, 
 
-                dataType:'text',
+//                dataType:'json',
                 success:function(result){
-                	var jsonData = JSON.stringify(result);
-	                window.open("http://localhost:8080/user/" + result + "/home");
+                	var user_name = JSON.stringify(result);
+                	var n = user_name.split("|");
+                	alert(n[1])
+                	$("span").empty();
+                	if(n[1] == "id为空"){
+                		document.getElementById("warning_id").innerHTML = "请输入id";                   	
+                	}
+                	else if(n[1] == "name为空"){
+                		document.getElementById("warning_name").innerHTML = "请输入用户名";
+                	}
+                	else if(n[1] == "pwd为空"){
+                		document.getElementById("warning_pwd").innerHTML = "请输入密码";
+                	}
+                	else if(n[1] == "id已存在"){
+                		document.getElementById("warning_id").innerHTML = "id已存在";
+                	}
+                	else if(n[1] == "age输入错误"){
+                		document.getElementById("warning_age").innerHTML = "年龄应为数字  0-100";
+                		$("#user_age").val("");
+                	}
+                	else if(n[1] == "phone输入错误"){
+                		document.getElementById("warning_phone").innerHTML = "联系电话应为数字";
+                		$("#user_phone").val("");
+                	}
+                	else if(n[1] == "pwd不一致"){
+                		document.getElementById("warning_pwd").innerHTML = "两次输入不一致，请重新输入";
+                		$("#user_pwd").val("");
+                		$("#reuser_pwd").val("");
+                	}
+                	else
+	                	window.location.href="http://localhost:8080/user/" + n[1] + "/home";
  				},
  				error:function(error){
  					var jsonData = JSON.stringify(error);

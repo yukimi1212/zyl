@@ -5,6 +5,8 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<link rel="shortcut icon" href="../../images/ico/favicon.png">
+
 <title>百度地图</title>
 <style type="text/css">
 html {

@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="shortcut icon" href="../../images/ico/favicon.png">
+
 <title>Open Flash Chart</title>
 	<script type="text/javascript" src="../../js/swfobject.js"></script>
 	<script type="text/javascript">

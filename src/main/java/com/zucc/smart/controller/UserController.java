@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,7 @@ public class UserController {
 	 UserService userService;
 	 
     @RequestMapping(value = "/{user_id}", method = RequestMethod.GET)
-    public String getUserById(@PathVariable("user_id") String user_id, Map<String, Object> map) {
+    public String getUserById(@PathVariable("user_id") String user_id, @RequestBody Map<String, Object> map) {
 //    	JSONObject jsonObject = JSONObject.fromObject(user_id);
 //    	Map jsonmap = (Map)jsonObject;
 //    	System.out.println("user_id: " + user_id);
@@ -42,24 +43,25 @@ public class UserController {
     }
     
     @RequestMapping(value = {"/", "/{user_id}/map"})
-    public String getMap(@PathVariable("user_id") String user_id, Map<String, Object> map) {
+    public String getMap(@PathVariable("user_id") String user_id) {
         log.info("/user"+ user_id +"/map");
         return "map";
     }
     
     @RequestMapping(value = {"/", "/{user_id}/open"})
-    public String getOpenFlashChart(@PathVariable("user_id") String user_id, Map<String, Object> map) {
+    public String getOpenFlashChart(@PathVariable("user_id") String user_id) {
         log.info("/user"+ user_id +"/open");
         return "open";
     }
     
-    @RequestMapping(value = {"/", "/{objmap}/home"})
-    public String enterHome(@PathVariable("objmap") String objmap, Map<String, Object> map) {
+    @RequestMapping(value = {"/", "/{user_name}/home"})
+    public String enterHome(@PathVariable("user_name") String user_name, Map<String, Object> map) {
         log.info("/user/{}/home");
-        JSONObject jsonObject = JSONObject.fromObject(objmap);
-    	Map jsonmap = (Map)jsonObject;
-    	Map usermap = (Map) jsonmap.get("user");
-    	String user_name = (String) usermap.get("user_name");
+//        JSONObject jsonObject = JSONObject.fromObject(objmap);
+//    	Map jsonmap = (Map)jsonObject;
+//    	String user_name = (String) jsonmap.get("user");
+//    	Map usermap = (Map) jsonmap.get("user");
+//    	String user_name = (String) usermap.get("user_name");
     	map.put("user_name", user_name);
         return "index";
     }
