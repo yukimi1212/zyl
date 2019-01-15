@@ -2,6 +2,8 @@ package com.zucc.smart.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zucc.smart.domain.User;
 import com.zucc.smart.service.UserService;
+import com.zucc.smart.service.impl.buildTXT;
 
 import net.sf.json.JSONObject;
 
@@ -48,10 +51,14 @@ public class UserController {
         return "map";
     }
     
-    @RequestMapping(value = {"/", "/{user_id}/open"})
-    public String getOpenFlashChart(@PathVariable("user_id") String user_id) {
-        log.info("/user"+ user_id +"/open");
-        return "open";
+    @RequestMapping(value = {"/", "/{user_id}/analysis"})
+    public String getOpenFlashChart(@PathVariable("user_id") String user_id) throws IOException {
+        log.info("/user"+ user_id +"/analysis");
+        double[] data1 = new double[]{8,4,7,3,5,2,6,1,9};
+        double[] data2 = new double[]{2,6,3,7,5,8,4,9,1};
+        
+        buildTXT.alertBar1(data1, data2);
+        return "analysisTest";
     }
     
     @RequestMapping(value = {"/", "/{user_name}/home"})

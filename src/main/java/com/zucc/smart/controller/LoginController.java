@@ -38,12 +38,20 @@ public class LoginController {
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String loginUser(String user_id, String user_pwd) {
         log.info("/login/user/" + user_id);
-//    	Map<String,Object> map = new HashMap<String,Object>();
     	String str = "";
-    	User user = userService.checkUser(user_id, user_pwd);
-    	if(user != null)
-    		str = user.getUser_name();
-    	return "|" + str + "|";
+//    	Map<String,Object> map = new HashMap<String,Object>();
+        if(user_id == "")
+        	str = "|id为空|";
+        else if(user_pwd == "")
+        	str = "|pwd为空|";
+        else {
+        	User user = userService.checkUser(user_id, user_pwd);
+        	if(user != null)
+        		str = "|" + user.getUser_name() + "|";
+        	else
+        		str = "|不存在|";
+        }
+    	return str;
     }
     
     @RequestMapping(value = "/register", method = RequestMethod.POST)

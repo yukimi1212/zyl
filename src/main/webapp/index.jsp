@@ -202,7 +202,7 @@
 				<div class="col-md-3 col-sm-3 col-xs-12 clean-blurb-round-icon wow bounceInLeft">
 					<div class="clean-icon">
 						<a href="javascript:void(0)" onclick="jumpToMap()">
-						<i class="fa fa-html5"></i>
+						<i class="fa fa-search"></i>
 						</a>
 					</div>
 					<h3>停车场搜索</h3>
@@ -211,7 +211,7 @@
 
 				<div class="col-md-3 col-sm-3 col-xs-12 clean-blurb-round-icon wow bounceIn" data-wow-delay=".5s">
 					<div class="clean-icon">
-						<i class="fa fa-css3"></i>
+						<i class="fa fa-edit"></i>
 					</div>
 					<h3>停车场统计</h3>
 					<p>统计了各个停车场的数据，可按地区按类型查询停车场的相关信息。</p>
@@ -228,10 +228,10 @@
 				<div class="col-md-3 col-sm-3 col-xs-12 clean-blurb-round-icon wow bounceInRight" data-wow-delay=".5s">
 					<div class="clean-icon">
 						<a href="javascript:void(0)" onclick="jumpToOpen()">
-						<i class="fa fa-support"></i>
+						<i class="fa fa-bar-chart"></i>
 						</a>
 					</div>
-					<h3>分析统计</h3>
+					<h3>数据分析</h3>
 					<p>综合各种数据，对停车场，车位利用率等信息进行统计分析。</p>
 				</div>
 		 
@@ -268,7 +268,7 @@
 						<p class="clean-client-info">游客</p><br>
 						<p>您好，欢迎来到智能停车管理系统，</p>
 						<p>城市停车场智能化管理，数据录入，分类整理，实时展示，统计分析。</p>
-						<a href="login.jsp"><h4>登录</h4></a>
+						<p>查看相关功能，请先<a href="login.jsp">登录</p></a>
 					</div>
 					<!-- Slides End -->
 				</div>

@@ -31,8 +31,9 @@
       <div class="container log-row">
       	<form id="form" class="form-signin" action="/login/user" method="get" enctype="multipart/form-data"> 
               <div class="login-wrap">
-              	  <span style="color:#f36616" id="warning"></span>
+              	  <span style="color:#f36616" id="warning_id"></span>
                   <input type="text" id="user_id" name="user_id" class="form-control" placeholder="User ID" autofocus>
+                  <span style="color:#f36616" id="warning_pwd"></span>
                   <input type="password" id="user_pwd" name="user_pwd" class="form-control" placeholder="Password">
                   <button class="btn btn-lg btn-success btn-block" type="submit">LOGIN</button>
                   <div class="login-social-link">
@@ -103,14 +104,21 @@
 	            url: "http://localhost:8080/login/user",
 	            success: function (data) {
 	                var user_name = JSON.stringify(data);
-	                var n = user_name.split("|");
-	                if(n[1] != "")
-	                	window.location.href="http://localhost:8080/user/" + n[1] + "/home";
-	                else{
-	                	document.getElementById("warning").innerHTML = "用户名或密码错误，请重新输入";
+	                var n = user_name.split("|");	
+	                $("span").empty();
+	                if(n[1] == "id为空"){
+	                	document.getElementById("warning_id").innerHTML = "请输入id";
+	                }
+	                else if(n[1] == "pwd为空"){
+	                	document.getElementById("warning_pwd").innerHTML = "请输入密码";
+	                }	
+	                else if(n[1] == "不存在"){
+	                	document.getElementById("warning_id").innerHTML = "用户名或密码错误，请重新输入";
 	                	$("#user_id").val("");
                 		$("#user_pwd").val("");
 	                }	
+	                else
+	                	window.location.href="http://localhost:8080/user/" + n[1] + "/home";
 	            }
 	        };
 	        $("#form").ajaxForm(options);

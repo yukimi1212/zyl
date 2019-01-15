@@ -330,7 +330,7 @@
 	
 	function jumpToOpen(){
 		var user_name = document.getElementById("user_name").innerHTML;
-        var uurl = "http://localhost:8080/user/" + user_name + "/open";
+        var uurl = "http://localhost:8080/user/" + user_name + "/analysis";
         window.open(uurl);  
     }	
 	
