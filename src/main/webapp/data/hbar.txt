@@ -43,6 +43,8 @@
     "labels": ["slashdot.org","digg.com","reddit.com"]
      
    
-}
+},
+
+  "bg_colour":  "#FFFFFF"
  
 }

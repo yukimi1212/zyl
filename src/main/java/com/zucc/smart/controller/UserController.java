@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zucc.smart.domain.User;
 import com.zucc.smart.service.UserService;
-import com.zucc.smart.service.impl.buildTXT;
+import com.zucc.smart.service.impl.Decode;
+import com.zucc.smart.service.impl.build7daysTxt;
 
 import net.sf.json.JSONObject;
 
@@ -44,31 +45,29 @@ public class UserController {
         map.put("time", new Date());
     	return "helloworld";
     }
-    
-    @RequestMapping(value = {"/", "/{user_id}/map"})
-    public String getMap(@PathVariable("user_id") String user_id) {
-        log.info("/user"+ user_id +"/map");
+
+    @RequestMapping(value = {"/", "/{user_name}/map"})
+    public String getMap(@PathVariable("user_name") String user_name) {
+//    	user_name = new String (Decode.decode(user_name));
+    	log.info("/user/"+ user_name +"/map");
         return "map";
     }
     
-    @RequestMapping(value = {"/", "/{user_id}/analysis"})
-    public String getOpenFlashChart(@PathVariable("user_id") String user_id) throws IOException {
-        log.info("/user"+ user_id +"/analysis");
-        double[] data1 = new double[]{8,4,7,3,5,2,6,1,9};
-        double[] data2 = new double[]{2,6,3,7,5,8,4,9,1};
+    @RequestMapping(value = {"/", "/{user_name}/analysis"})
+    public String getOpenFlashChart(@PathVariable("user_name") String user_name, Map<String, Object> map) throws IOException {
+//    	user_name = new String (Decode.decode(user_name));
+    	log.info("/user/"+ user_name + "/analysis");
+        double[] data1 = new double[]{4,8,9,3,2,6,8,6,3,7,3,5};
         
-        buildTXT.alertBar1(data1, data2);
+        build7daysTxt.alertBar1(data1);
+        map.put("user_name", user_name);
         return "analysisTest";
     }
     
     @RequestMapping(value = {"/", "/{user_name}/home"})
-    public String enterHome(@PathVariable("user_name") String user_name, Map<String, Object> map) {
-        log.info("/user/{}/home");
-//        JSONObject jsonObject = JSONObject.fromObject(objmap);
-//    	Map jsonmap = (Map)jsonObject;
-//    	String user_name = (String) jsonmap.get("user");
-//    	Map usermap = (Map) jsonmap.get("user");
-//    	String user_name = (String) usermap.get("user_name");
+    public String enterHome(@PathVariable("user_name") String user_name_obj, Map<String, Object> map) {
+        String user_name = new String (Decode.decode(user_name_obj));
+    	log.info("/user/" + user_name + "/home");
     	map.put("user_name", user_name);
         return "index";
     }

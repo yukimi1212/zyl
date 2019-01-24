@@ -1,114 +1,183 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta content="" name="description" />
-    <meta content="webthemez" name="author" />
-    <title>Bootstrap Admin Template</title>
-	<!-- Bootstrap Styles-->
-    <link href="css/bootstrap.css" rel="stylesheet" />
-     <!-- FontAwesome Styles-->
-    <link href="css/font-awesome.css" rel="stylesheet" />
-     <!-- Morris Chart Styles-->
-    <link href="js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-        <!-- Custom Styles-->
-    <link href="css/custom-styles.css" rel="stylesheet" />
-     <!-- Google Fonts-->
-    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chart</title>
+    <link rel="stylesheet" href="../../vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="../../vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="shortcut icon" href="../../images/ico/favicon.png">
+    <script type="text/javascript" src="../../js/swfobject.js"></script>
+	<script type="text/javascript">
+		var openFlashChartswf = "../../swf/open-flash-chart.swf";
+		var expressInstallswf = "../../swf/expressInstall.swf";
+		var params = {menu: "false",scale: "noScale",wmode:"opaque"}; 
+		swfobject.embedSWF(openFlashChartswf, "chart1", "674px", "350px", "9.0.0", expressInstallswf, {"data-file":"../../data/24h.txt"},params);
+		swfobject.embedSWF(openFlashChartswf, "chart2", "674px", "350px", "9.0.0", expressInstallswf, {"data-file":"../../data/7days-2.txt"},params);
+		swfobject.embedSWF(openFlashChartswf, "chart3", "674px", "350px", "9.0.0", expressInstallswf, {"data-file":"../../data/30days.txt"},params);
+		swfobject.embedSWF(openFlashChartswf, "chart4", "674px", "350px", "9.0.0", expressInstallswf, {"data-file":"../../data/12months.txt"},params);
+	</script>
 </head>
-<body>
-    <div>
+<body class="sidebar-fixed header-fixed">
+<div class="page-wrapper">
+    <nav class="navbar page-header">
+<!--         <a href="#" class="btn btn-link sidebar-mobile-toggle d-md-none mr-auto">
+            <i class="fa fa-bars"></i>
+        </a> -->
 
-        <!-- /. NAV SIDE  -->
-        <div>
-			<div class="header"> 
-                        <h1 class="page-header">
-                             Charts <small>Show up your stats</small>
-                        </h1>
-						<ol class="breadcrumb">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Charts</a></li>
-							<li class="active">Data</li>
-						</ol> 							
-			</div>
-            <div id="page-inner"> 
-             
-			        <div class="row">
-                        <div class="col-sm-6 col-xs-12">  
-                            <div class="panel panel-default chartJs">
-                                <div class="panel-heading">
-                                    <div class="card-title">
-                                        <div class="title">Line Chart</div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <canvas id="line-chart" class="chart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xs-12">
-                            <div class="panel panel-default chartJs">
-                                <div class="panel-heading">
-                                    <div class="card-title">
-                                        <div class="title">Bar Chart</div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <canvas id="bar-chart" class="chart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-xs-12">
-                            <div class="panel panel-default chartJs">
-                                <div class="panel-heading">
-                                    <div class="card-title">
-                                        <div class="title">Radar Chart</div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <canvas id="radar-chart" class="chart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xs-12">
-                            <div class="panel panel-default chartJs">
-                                <div class="panel-heading">
-                                    <div class="card-title">
-                                        <div class="title">Polar Area Chart</div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <canvas id="polar-area-chart" class="chart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>             
-			</div>
-             <!-- /. PAGE INNER  -->
+        <a class="navbar-brand" href="#">
+            <img src="../../images/logo.PNG" alt="logo">
+        </a> 
+
+        <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
+            <i class="fa fa-bars"></i>
+        </a>
+
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="../../images/user.jpg" class="avatar avatar-sm" alt="user">
+                    <span class="small ml-1 d-md-down-none">${user_name }</span>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right">                    		
+                    <a href="#" class="dropdown-item">
+						<i class="fa fa-bell"></i> Informations
+                    </a>
+
+                    <a href="../../index.jsp" class="dropdown-item">
+						<i class="fa fa-lock"></i> Logout
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-title">导航栏</li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="icon icon-target"></i> 各停车场
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link nav-dropdown-toggle">
+                            <i class="icon icon-clock"></i> 分时段排行 <i class="fa fa-caret-left"></i>
+                        </a>
+
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="javascript:void(0)" onclick="day()" class="nav-link">
+                                    <i class="icon icon-graph"></i> 天
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="layouts-fixed-sidebar.html" class="nav-link">
+                                    <i class="icon icon-graph"></i> 周
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="layouts-fixed-header.html" class="nav-link">
+                                    <i class="icon icon-graph"></i> 月
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                                                       
+
+                    <li class="nav-item">
+                        <a href="tables.html" class="nav-link">
+                            <i class="icon icon-puzzle"></i> 按类型
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-         <!-- /. PAGE WRAPPER  -->
+
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            	二十四小时
+                        </div>
+						<div id="chart1"></div> 
+				
+				<!--	<div class="card-body">
+                            <canvas id="bar-chart" width="100%" height="50"></canvas>
+                        </div>		 -->
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                           	 七天
+                        </div>
+						<div id="chart2"></div> 
+                        
+				<!-- 	<div class="card-body">
+                            <canvas id="line-chart" width="100%" height="50"></canvas>
+                        </div>	 	-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            	三十天
+                        </div>
+						<div id="chart3"></div> 
+						
+                <!--    <div class="card-body">
+                            <canvas id="radar-chart" width="100%" height="50"></canvas>
+                        </div>		 -->
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            	十二个月
+                        </div>
+						<div id="chart4"></div> 
+						
+                <!--    <div class="card-body">
+                            <canvas id="pie-chart" width="100%" height="50"></canvas>
+                        </div>		 -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-     <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
-    <!-- jQuery Js -->
-    <script src="js/jquery-1.10.2.js"></script>
-      <!-- Bootstrap Js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Metis Menu Js -->
-    <script src="js/jquery.metisMenu.js"></script>
-    <!-- Chart Js -->
-    <script type="text/javascript" src="js/Chart.min.js"></script>  
-    <script type="text/javascript" src="js/chartjs.js"></script> 
-     <!-- Morris Chart Js -->
-     <script src="js/morris/raphael-2.1.0.min.js"></script>
-    <script src="js/morris/morris.js"></script>
-      <!-- Custom Js -->
-    <script src="js/custom-scripts.js"></script>
-   
+</div>
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/popper.js/popper.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/chart.js/chart.min.js"></script>
+<script src="../../js/carbon.js"></script>
+<script src="../../js/demo.js"></script>
 </body>
+
+<script type="text/javascript">  
+	function day(){
+		var user_name = document.getElementById("user_name").innerHTML;
+        var uurl = "http://localhost:8080/user/" + user_name + "/map";
+        window.open(uurl);  
+    }	
+</script>
 </html>

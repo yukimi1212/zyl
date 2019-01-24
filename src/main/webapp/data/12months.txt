@@ -1,0 +1,73 @@
+{
+ 
+  "title":{
+ 
+    "text":  "   ",
+    "style": "{font-size: 20px; color:#0000ff; font-family: Verdana; text-align: center;}"
+   
+},
+
+  "x_legend":{
+	"text":   "12 months",
+	"style": "{color: #736AFF; font-size: 12;}"
+   },
+ 
+  "y_legend":{
+ 
+    "text": "Rate (%)",
+    "style": "{color: #736AFF; font-size: 12;}"
+   },
+ 
+  "elements":[
+    {
+ 
+      "type":      "bar",
+      "alpha":     0.5,
+      "colour":    "#9933CC",
+      "text":      "Page views",
+      "font-size": 10,
+      "values" :   [9,6,7,9,5,7,6,9,7,6,7,9]
+     
+},
+
+{
+ 
+      "type":      "bar_glass",
+      "alpha":     0.5,
+      "colour":    "#44FF44",
+      "tip":       "Tip for green bars<br>val=#val#, top=#top#",
+      "text--":      "Page views",
+      "font-size--": 10,
+      "values" :   [6,7,9,5,9,7,6,5,2,8,5,3]
+     
+}
+    
+  ],
+ 
+  "x_axis":{
+ 
+    "stroke":1,
+    "tick_height":10,
+    "colour":"#010101",
+    "grid_colour":"#c4c3c2",
+    "labels": {
+      "labels": ["January","February","March","April","May","June","July","August","Spetember","October ","November ","December"]
+    }
+    
+},
+ 
+  "y_axis":{
+ 
+    "stroke":      1,
+    "tick_length": 10,
+    "colour":      "#010101",
+    "grid_colour": "#c4c3c2",
+    "offset":      0,
+    "max":         20
+   
+},
+ 
+  "bg_colour":  "#FFFFFF"
+ 
+ 
+}

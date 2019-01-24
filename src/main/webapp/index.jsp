@@ -54,7 +54,6 @@
 <link rel="stylesheet" href="css/color-green.css" id="colors" />
 
 
-
 <!--[if lt IE 9]>
 	<script src="js/html5shiv.min.js"></script>
 	<script src="js/respond.min.js"></script>
@@ -94,20 +93,27 @@
 			<div id="nav-menu" class="navbar-collapse collapse" role="navigation">
 				<ul class="nav navbar-nav clean-menu-wrapper">
 					<li class="active">
-						<a href="#clean-slider">主页</a>
+						<a href="#clean-slider">主页</a>		
 					</li>
 					<li>
-						<a href="#about">主要功能</a>
+						<a href="#about">主要功能</a>	
 					</li>
-					<li>
-						<a href="#info">个人信息</a>
-					</li>
-					<li>
-						<a href="login.jsp">
-						<img src="images/user.PNG" alt="用户登录"  height="50" width="50"/>
-						</a>		
-					</li>
-				</ul>
+					
+					<li class="dropdown">
+                		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<!--                     		<img src="images/user.PNG" alt="用户登录"  height="50" width="50"/>	-->
+                    		<span>Guest</span> 
+                    		<b class="caret"></b>
+                		</a>
+
+                		<ul class="dropdown-menu">
+                			<li class="divider"></li>
+                    			<li><center><a href="login.jsp">登录</a></center></li>
+                    		<li class="divider"></li>
+                    			<li><center><a href="registration.jsp">注册</a></center></li>
+                		</ul>
+            		</li>
+				</ul>	
 			</div>
 			<!-- navbar-collapse end-->
 
@@ -127,7 +133,7 @@
 		<div class="sp-slide clean-main-slides">
 			<div class="clean-img-overlay"></div>
 
-			<img class="sp-image" src="images/slider/1.jpg" alt="Slider 1"/>
+			<img class="sp-image" src="images/slider/3.jpg" alt="Slider 1"/>
 
 			<h1 class="sp-layer clean-slider-text-big"
 			data-position="center" data-show-transition="right" data-hide-transition="right" data-show-delay="1500" data-hide-delay="200">
@@ -162,7 +168,7 @@
 		<div class="sp-slide clean-main-slides">
 			<div class="clean-img-overlay"></div>
 
-			<img class="sp-image" src="images/slider/3.jpg" alt="Slider 3"/>
+			<img class="sp-image" src="images/slider/1.jpg" alt="Slider 3"/>
 
 			<h1 class="sp-layer clean-slider-text-big"
 			data-position="center" data-show-transition="right" data-hide-transition="right" data-show-delay="1500" data-hide-delay="200">
@@ -205,7 +211,7 @@
 						<i class="fa fa-search"></i>
 						</a>
 					</div>
-					<h3>停车场搜索</h3>
+					<h3>地图搜索</h3>
 					<p>实时定位搜索附近停车场；输入目的地搜索停车场。</p>
 				</div>
 
@@ -263,12 +269,12 @@
 
 					<div class="clean-testimonial-slides col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1"> 
 						<div class="clean-member-img-wrapper">
-							<img src="images/testimonial/user.jpg" alt="用户头像" height="120" width="120">
+							<img src="images/user.jpg" alt="用户头像" height="120" width="120">
 						</div>
 						<p class="clean-client-info">游客</p><br>
 						<p>您好，欢迎来到智能停车管理系统，</p>
 						<p>城市停车场智能化管理，数据录入，分类整理，实时展示，统计分析。</p>
-						<p>查看相关功能，请先<a href="login.jsp">登录</p></a>
+						<p>查看相关功能，请先<a href="login.jsp"><span style="color:green; font-weight:bold;">登录</span></a></p>
 					</div>
 					<!-- Slides End -->
 				</div>
@@ -326,10 +332,12 @@
 <script type="text/javascript">  
 	function jumpToMap(){
 		alert("请登录！");
+		window.location.href="#info";
     }	
 	
 	function jumpToOpen(){
 		alert("请登录！");
+		window.location.href="#info";
     }	
 
 </script>

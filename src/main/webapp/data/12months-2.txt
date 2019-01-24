@@ -1,6 +1,6 @@
-﻿{
+{
   "title":{
-    "text":  "bar_glass-1",
+    "text":  "   ",
     "style": "{font-size: 20px; color:#0000ff; font-family: Verdana; text-align: center;}"
   },
 
@@ -24,18 +24,18 @@
   "x_axis":{
     "stroke":       1,
     "tick_height":  10,
-    "colour":      "#d000d0",
-    "grid_colour": "#00ff00",
+    "colour":      "#010101",
+    "grid_colour": "#c4c3c2",
     "labels": {
       "labels": ["January","February","March","April","May","June","July","August","Spetember"]
     }
    },
 
   "y_axis":{
-    "stroke":      4,
-    "tick_length": 3,
-    "colour":      "#d000d0",
-    "grid_colour": "#00ff00",
+    "stroke":      1,
+    "tick_length": 10,
+    "colour":      "#010101",
+    "grid_colour": "#c4c3c2",
     "offset":      0,
     "max":         20
   },
@@ -43,5 +43,7 @@
   "tooltip":{
     "text": "My Tip
 val=#val#, top=#top#"
-  }
+  },
+  
+  "bg_colour":  "#FFFFFF"
 }

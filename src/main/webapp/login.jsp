@@ -63,7 +63,6 @@
                           <div class="modal-body">
                               <p>Enter your e-mail address below to reset your password.</p>
                               <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-
                           </div>
                           <div class="modal-footer">
                               <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
@@ -101,10 +100,9 @@
 	$(function () {
 	    $(":submit").click(function () {
 	        var options = {
-	            url: "http://localhost:8080/login/user",
+	            url: "http://192.168.60.16:8080/login/user",
 	            success: function (data) {
-	                var user_name = JSON.stringify(data);
-	                var n = user_name.split("|");	
+	                var n = data.split("|");	
 	                $("span").empty();
 	                if(n[1] == "id为空"){
 	                	document.getElementById("warning_id").innerHTML = "请输入id";
@@ -117,13 +115,42 @@
 	                	$("#user_id").val("");
                 		$("#user_pwd").val("");
 	                }	
-	                else
-	                	window.location.href="http://localhost:8080/user/" + n[1] + "/home";
+	                else{
+	                	var param = encode64(n[1]);
+	                	window.location.href="http://192.168.60.16:8080/user/" + param + "/home";
+	                }
 	            }
 	        };
 	        $("#form").ajaxForm(options);
 	    })
 	})
+	
+	var keyStr = "ABCDEFGHIJKLMNOP" + "QRSTUVWXYZabcdef" + "ghijklmnopqrstuv" + "wxyz0123456789+/" + "=";  
 
+	function encode64(input) {  
+		var output = "";  
+		var chr1, chr2, chr3 = "";  
+		var enc1, enc2, enc3, enc4 = "";  
+		var i = 0;  
+		do {  
+    		chr1 = input.charCodeAt(i++);  
+    		chr2 = input.charCodeAt(i++);  
+    		chr3 = input.charCodeAt(i++);  
+    		enc1 = chr1 >> 2;  
+    		enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);  
+    		enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);  
+    		enc4 = chr3 & 63;  
+    		if (isNaN(chr2)) {  
+        		enc3 = enc4 = 64;  
+    		} else if (isNaN(chr3)) {  
+        		enc4 = 64;  
+    		}  
+    		output = output + keyStr.charAt(enc1) + keyStr.charAt(enc2) + keyStr.charAt(enc3) + keyStr.charAt(enc4);  
+    		chr1 = chr2 = chr3 = "";  
+    		enc1 = enc2 = enc3 = enc4 = "";  
+		} while (i < input.length);  
+
+		return output;  
+	}  
 </script> 
 </html>

@@ -55,9 +55,7 @@ public class LoginController {
     }
     
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register (@RequestParam(value="user_id") String user_id, @RequestParam("user_name") String user_name,
-    		@RequestParam("user_pwd") String user_pwd, @RequestParam("reuser_pwd") String reuser_pwd, @RequestParam("user_gender") String user_gender,
-    		@RequestParam("user_age") String user_age, @RequestParam("user_phone") String user_phone) {
+    public String register (String user_id, String user_name, String user_pwd, String reuser_pwd, String user_gender, String user_age, String user_phone) {
         log.info("/login/register/" + user_id);
         String str = "";
         if(user_id == "") {
@@ -101,6 +99,7 @@ public class LoginController {
         }
         return str;
     }
+    
     
     public static boolean isInteger(String str) {  
         Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");  

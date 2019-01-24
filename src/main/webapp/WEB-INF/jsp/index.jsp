@@ -102,9 +102,20 @@
 					<li>
 						<a href="#about">主要功能</a>
 					</li>
-					<li>
-						<a href="#info">个人信息</a>
-					</li>
+					<li class="dropdown">
+                		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<!--                     		<img src="../../images/user.PNG" alt="当前用户"  height="50" width="50"/> 	-->
+                    		<span>${user_name }</span>
+                    		<b class="caret"></b>
+                		</a>
+
+                		<ul class="dropdown-menu">
+                    		<li class="divider"></li>
+                    			<li><center><a href="#info">个人信息</a></center></li>
+                    		<li class="divider"></li>
+                    			<li><center><a href="../../index.jsp">登出</a></center></li>
+                		</ul>
+            		</li>
 				</ul>
 			</div>
 			<!-- navbar-collapse end-->
@@ -125,7 +136,7 @@
 		<div class="sp-slide clean-main-slides">
 			<div class="clean-img-overlay"></div>
 
-			<img class="sp-image" src="../../images/slider/1.jpg" alt="Slider 1"/>
+			<img class="sp-image" src="../../images/slider/3.jpg" alt="Slider 1"/>
 
 			<h1 class="sp-layer clean-slider-text-big"
 			data-position="center" data-show-transition="right" data-hide-transition="right" data-show-delay="1500" data-hide-delay="200">
@@ -160,7 +171,7 @@
 		<div class="sp-slide clean-main-slides">
 			<div class="clean-img-overlay"></div>
 
-			<img class="sp-image" src="../../images/slider/3.jpg" alt="Slider 3"/>
+			<img class="sp-image" src="../../images/slider/1.jpg" alt="Slider 3"/>
 
 			<h1 class="sp-layer clean-slider-text-big"
 			data-position="center" data-show-transition="right" data-hide-transition="right" data-show-delay="1500" data-hide-delay="200">
@@ -203,7 +214,7 @@
 						<i class="fa fa-html5"></i>
 						</a>
 					</div>
-					<h3>停车场搜索</h3>
+					<h3>地图搜索</h3>
 					<p>实时定位搜索附近停车场；输入目的地搜索停车场。</p>
 				</div>
 
@@ -261,12 +272,12 @@
 
 					<div class="clean-testimonial-slides col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1"> 
 						<div class="clean-member-img-wrapper">
-							<img src="../../images/testimonial/user.jpg" alt="用户头像" height="120" width="120">
+							<img src="../../images/user.jpg" alt="用户头像" height="120" width="120">
 						</div>
 						<p class="clean-client-info" id="user_name">${user_name }</p><br>
 						<p>您好，欢迎来到智能停车管理系统，</p>
 						<p>城市停车场智能化管理，数据录入，分类整理，实时展示，统计分析。</p>						
-						<a href="../../index.jsp"><h4>登出</h4></a>
+						<a href="../../index.jsp"><span style="color:green; font-weight:bold;">登出</span></a>
 					</div>
 					<!-- Slides End -->
 				</div>
@@ -288,11 +299,9 @@
 			<div class="clean-footer-content">
 
 				<div class="clean-footer-logo wow bounceIn" data-wow-offset="0">
-					<a href="index.jsp">
-						<img id="logo-footer" src="../../images/logo.PNG" alt="clean">
-					</a>
+					<img id="logo-footer" src="../../images/logo.PNG" alt="clean">
 				</div>
-
+				
 				<p class="clean-copyright-info">This is SMART PARKING SYSTEM.</p>
 			</div>
 		</div>
@@ -324,18 +333,89 @@
 <script type="text/javascript">  
 	function jumpToMap(){
 		var user_name = document.getElementById("user_name").innerHTML;
-        var uurl = "http://localhost:8080/user/" + user_name + "/map";
-        window.open(uurl);  
+	    var param = encode64(user_name);
+        var uurl = "http://192.168.60.16:8080/user/" + param + "/map"; 
+        window.open(uurl); 
+    
+       /*  var uurl = "http://localhost:8080/user/";
+        $.ajax({
+            type:'GET',
+            url:'http://localhost:8080/login/decode',
+            async:true,
+            data:{
+            	'user_name':user_name
+            },
+            success:function(result){
+                var jsonData = JSON.stringify(result);
+                var n = jsonData.split("\"");
+                window.open(uurl + n[1] + "/map");
+            },
+            error:function(error){
+            	var jsonData = JSON.stringify(error);
+                alert(jsonData);
+            }
+        }) */
     }	
 	
 	function jumpToOpen(){
 		var user_name = document.getElementById("user_name").innerHTML;
-        var uurl = "http://localhost:8080/user/" + user_name + "/analysis";
+//		var user_id = document.getElementById("user_id").value;
+	 	var param = encode64(user_name);
+        var uurl = "http://192.168.60.16:8080/user/" + param + "/analysis";
         window.open(uurl);  
+      
+     	/* var uurl = "http://localhost:8080/user/";
+     	$.ajax({
+       		type:'GET',
+         	url:'http://localhost:8080/login/decode',
+         	async:true,
+         	data:{
+         		'user_name':user_name
+         	},
+         	success:function(result){
+         	    var jsonData = JSON.stringify(result);
+         	    alert(jsonData)
+         	   	var n = jsonData.split("\"");
+         	   	alert(n[1])
+             	window.open(uurl + n[1] + "/analysis");
+         	},
+         	error:function(error){
+         		var jsonData = JSON.stringify(error);
+            	alert(jsonData);
+         	}
+     	}) */
     }	
 	
 	function login(){
 		window.location.href="login.jsp";  
 	}
+	
+	var keyStr = "ABCDEFGHIJKLMNOP" + "QRSTUVWXYZabcdef" + "ghijklmnopqrstuv" + "wxyz0123456789+/" + "=";  
+
+	function encode64(input) {  
+		var output = "";  
+		var chr1, chr2, chr3 = "";  
+		var enc1, enc2, enc3, enc4 = "";  
+		var i = 0;  
+		do {  
+    		chr1 = input.charCodeAt(i++);  
+    		chr2 = input.charCodeAt(i++);  
+    		chr3 = input.charCodeAt(i++);  
+    		enc1 = chr1 >> 2;  
+    		enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);  
+    		enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);  
+    		enc4 = chr3 & 63;  
+    		if (isNaN(chr2)) {  
+        		enc3 = enc4 = 64;  
+    		} else if (isNaN(chr3)) {  
+        		enc4 = 64;  
+    		}  
+    		output = output + keyStr.charAt(enc1) + keyStr.charAt(enc2) + keyStr.charAt(enc3) + keyStr.charAt(enc4);  
+    		chr1 = chr2 = chr3 = "";  
+    		enc1 = enc2 = enc3 = enc4 = "";  
+		} while (i < input.length);  
+
+		return output;  
+	}  
 </script>
 </html>
