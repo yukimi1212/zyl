@@ -21,7 +21,7 @@
       "colour":    "#9933CC",
       "text--":      "Page views",
       "font-size--": 10,
-      "values" :   [9,6,7,9,5,{"top":7,"colour":"#FF0000", "tip": "Mooo#val#"},6,9,7,3,8,2]
+      "values" :   [9,6,7,9,5,{"top":7,"colour":"#FF0000", "tip": "Mooo#val#"},6]
     }
   ],
 
@@ -31,7 +31,7 @@
     "colour":      "#010101",
     "grid_colour": "#e8e8e8",
     "labels": {
-      "labels": ["January","February","March","April","May","June","July","August","Spetember","October ","November ","December"]
+      "labels": ["Mon","Tues","Wed","Thur","Fri","Sat","Sun"]
     }
    },
 

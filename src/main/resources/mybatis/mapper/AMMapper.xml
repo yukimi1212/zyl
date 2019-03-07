@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mz.mapper.AMMapper">
+
+	<resultMap id="AMDataMap" type="mz.domain.AMData">
+		<result column="id" property="id" />
+		<result column="ranking" property="ranking" />
+		<result column="active" property="active" />
+		<result column="page_amount" property="page_amount" />
+		<result column="record_time" property="record_time" />
+	</resultMap>
+	
+    
+    <!-- 艾漫最新数据 -->
+    <select id="getAMLatestData" resultMap="AMDataMap" useCache="false">
+    	select id,ranking,active,page_amount,record_time 
+		FROM aim
+		order by id desc LIMIT 1 ;
+    </select>
+    
+    
+	<!-- 添加 -->
+	<update id="addAMData" parameterType="mz.domain.AMData">
+		INSERT INTO aim
+		(id, ranking, active, page_amount, record_time)
+		values
+		(#{id}, #{ranking}, #{active}, #{page_amount}, #{record_time})
+	</update>
+   
+</mapper>

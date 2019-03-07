@@ -1,0 +1,54 @@
+﻿{
+  "title":{
+    "text":  " 张拉丁18年每月涨粉统计 ",
+    "style": "{font-size: 12px; color:#736AFF; font-family: Verdana; text-align: center;}"
+  },
+
+  "x_legend":{
+	"text":   "12 months",
+	"style": "{color: #736AFF; font-size: 12;}"
+   },
+
+  "y_legend":{
+    "text": "Growth",
+    "style": "{color: #736AFF; font-size: 12;}"
+  },
+
+  "elements":[
+    {
+      "type":      "bar_glass",
+      "alpha":     0.5,
+      "colour":    "#73b839",
+      "text--":      "Page views",
+      "font-size--": 10,
+      "values" :   [13799,25300,594889,201644,182855,43262,45701,110405,88486,277091,465855,517438]
+    }
+  ],
+
+  "x_axis":{
+    "stroke":       1,
+    "tick_height":  10,
+    "colour":      "#010101",
+    "grid_colour": "#e8e8e8",
+    "labels": {
+      "labels": ["January","February","March","April","May","June","July","August","Spetember","October ","November ","December"]
+    }
+   },
+
+  "y_axis":{
+    "stroke":      1,
+    "tick_length": 10,
+    "colour":      "#010101",
+    "grid_colour": "#e8e8e8",
+    "offset":      0,
+    "min":         10000,
+    "max":         600000
+  },
+
+  "tooltip":{
+    "text": "My Tip
+val=#val#, top=#top#"
+  },
+  
+  "bg_colour":  "#FFFFFF"
+}

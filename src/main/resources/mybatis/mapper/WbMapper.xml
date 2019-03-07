@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mz.mapper.WbMapper">
+
+	<resultMap id="WbDayDataMap" type="mz.domain.DayData">
+		<result column="id" property="id" />
+		<result column="amount" property="amount" />
+		<result column="record_time" property="record_time" />
+	</resultMap>
+	
+	<!-- 微博第一天粉丝数 -->
+	<select id="getWbZylFirstDayData" resultMap="WbDayDataMap" useCache="false">
+    	select id,amount,record_time 
+		FROM wb_zyl 
+		order by id asc LIMIT 1 ;
+    </select>
+    <select id="getWbYjlFirsttDayData" resultMap="WbDayDataMap" useCache="false">
+    	select id,amount,record_time 
+		FROM wb_yjl 
+		order by id asc LIMIT 1 ;
+    </select>
+    
+    <!-- 微博最新粉丝数 -->
+    <select id="getWbZylLatestDayData" resultMap="WbDayDataMap" useCache="false">
+    	select id,amount,record_time 
+		FROM wb_zyl 
+		order by id desc LIMIT 1 ;
+    </select>
+    <select id="getWbYjlLatestDayData" resultMap="WbDayDataMap" useCache="false">
+    	select id,amount,record_time 
+		FROM wb_yjl 
+		order by id desc LIMIT 1 ;
+    </select>
+    
+    <!-- 微博上月末粉丝数 -->
+    <select id="getWbZylAnyTimeDayData" parameterType="java.lang.String" resultMap="WbDayDataMap" useCache="false">
+    	select id,amount,record_time 
+		FROM wb_zyl 
+		Where record_time like "%"#{lastMonth}"%" ;
+    </select>
+    <select id="getWbYjlAnyTimeDayData" parameterType="java.lang.String" resultMap="WbDayDataMap" useCache="false">
+    	select id,amount,record_time 
+		FROM wb_yjl 
+		Where record_time like "%"#{lastMonth}"%" ;
+    </select>
+
+    
+   
+	<!-- 取所有数据 -->
+    <select id="getWbZyl" resultMap="WbDayDataMap" useCache="false">
+    	select amount 
+		FROM wb_zyl
+		order by id asc;
+    </select>
+    <select id="getWbYjl" resultMap="WbDayDataMap" useCache="false">
+    	select amount 
+		FROM wb_yjl
+		order by id asc;
+    </select>
+    
+    
+    <!-- 添加 -->
+	<update id="addWbZylData" parameterType="mz.domain.DayData">
+		INSERT INTO wb_zyl
+		(id, amount, record_time)
+		values
+		(#{id}, #{amount}, #{record_time})
+	</update>
+	
+	<update id="addWbYjlData" parameterType="mz.domain.DayData">
+		INSERT INTO wb_yjl
+		(id, amount, record_time)
+		values
+		(#{id}, #{amount}, #{record_time})
+	</update>
+	
+	
+   
+</mapper>

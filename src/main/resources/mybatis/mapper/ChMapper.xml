@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mz.mapper.ChMapper">
+
+	<resultMap id="ChDayDataMap" type="mz.domain.DayData">
+		<result column="id" property="id" />
+		<result column="amount" property="amount" />
+		<result column="record_time" property="record_time" />
+	</resultMap>
+	
+    
+    <!-- 超话最新粉丝数 -->
+    <select id="getCh_dayZylLatestDayData" resultMap="ChDayDataMap" useCache="false">
+    	select id,amount,record_time 
+		FROM ch_zyl_day
+		order by id desc LIMIT 1 ;
+    </select>
+    <select id="getCh_dayYjlLatestDayData" resultMap="ChDayDataMap" useCache="false">
+    	select id,amount,record_time 
+		FROM ch_yjl_day
+		order by id desc LIMIT 1 ;
+    </select>
+    
+    <!-- 超话上月末粉丝数 -->
+    <select id="getChZylLastMonthDayData" parameterType="java.lang.String" resultMap="ChDayDataMap" useCache="false">
+    	select id,amount,record_time 
+		FROM ch_zyl_day 
+		Where record_time like "%"#{lastMonth}"%";
+    </select>
+    <select id="getChYjlLastMonthDayData" parameterType="java.lang.String" resultMap="ChDayDataMap" useCache="false">
+    	select id,amount,record_time 
+		FROM ch_yjl_day
+		Where record_time like "%"#{lastMonth}"%";
+    </select>
+    
+    
+	<!-- 添加 -->
+	<update id="addChZylData" parameterType="mz.domain.DayData">
+		INSERT INTO ch_zyl_day
+		(id, amount, record_time)
+		values
+		(#{id}, #{amount}, #{record_time})
+	</update>
+	
+	<update id="addChYjlData" parameterType="mz.domain.DayData">
+		INSERT INTO ch_yjl_day
+		(id, amount, record_time)
+		values
+		(#{id}, #{amount}, #{record_time})
+	</update>
+   
+</mapper>
