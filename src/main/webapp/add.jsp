@@ -61,10 +61,10 @@
 //            dataType:'json',
             success:function(){
             	window.location.href="index.jsp";
-				},
-				error:function(error){
-					var jsonData = JSON.stringify(error);
-                alert("error: " + jsonData);
+			},
+			error:function(error){
+				var jsonData = JSON.stringify(error);
+            	alert("error: " + jsonData);
             }
                     
 		}) 
